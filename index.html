@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style>
+body {
+  margin: 0;
+  background: transparent;
+  font-family: "Segoe UI", Arial;
+  overflow: hidden;
+}
+
+body {
+  -webkit-app-region: drag;
+}
+
+input, button, #chat {
+  -webkit-app-region: no-drag;
+}
+
+/* MAIN APP CONTAINER */
+#app {
+  width: 100%;
+  height: auto;
+  background: rgba(20, 20, 25, 0.55);
+  backdrop-filter: blur(18px);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* CHARACTER AREA */
+#character {
+  width: 90px;
+  height: 90px;
+  margin: 12px auto 0;
+  background: url("./assets/idle.gif") center/contain no-repeat;
+  filter: drop-shadow(0 8px 10px rgba(0,0,0,0.4));
+}
+
+/* CHAT AREA */
+#chat {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* CHAT BUBBLES */
+.msg {
+  max-width: 80%;
+  padding: 8px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  line-height: 1.3;
+  word-wrap: break-word;
+}
+
+/* USER MESSAGE */
+.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #4fc3f7, #2196f3);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+/* AI MESSAGE */
+.ai {
+  align-self: flex-start;
+  background: rgba(255,255,255,0.08);
+  color: #eaeaea;
+  border-bottom-left-radius: 4px;
+}
+
+/* INPUT BAR */
+#inputBox {
+  display: flex;
+  padding: 8px;
+  gap: 6px;
+  background: rgba(0,0,0,0.25);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+  color: white;
+}
+
+input::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
+button {
+  width: 42px;
+  border: none;
+  border-radius: 10px;
+  background: #4fc3f7;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #2196f3;
+}
+</style>
+</head>
+
+<body>
+
+<div id="app">
+
+  <div id="character"></div>
+
+  <div id="chat"></div>
+
+  <div id="inputBox">
+    <input id="input" placeholder="Talk to Penny..." />
+    <button id="send">➤</button>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
